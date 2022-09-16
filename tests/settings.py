@@ -1,6 +1,8 @@
 from datetime import datetime, date, time, timedelta
 from decimal import Decimal
 
+from django.utils.translation import gettext_lazy
+
 
 SECRET_KEY = 'cheese'
 
@@ -53,6 +55,13 @@ CONSTANCE_ADDITIONAL_FIELDS = {
     ],
     # note this intentionally uses a tuple so that we can test immutable
     'email': ('django.forms.fields.EmailField',),
+    'lazy_str': (
+        'django.forms.fields.CharField',
+        {
+            'widget': 'django.forms.Textarea',
+            'required': False,
+        },
+    ),
 }
 
 USE_TZ = True
@@ -61,6 +70,7 @@ CONSTANCE_CONFIG = {
     'INT_VALUE': (1, 'some int'),
     'BOOL_VALUE': (True, 'true or false'),
     'STRING_VALUE': ('Hello world', 'greetings'),
+    'LAZY_STRING_VALUE': (gettext_lazy('Hello world'), 'greetings', 'lazy_str'),
     'DECIMAL_VALUE': (Decimal('0.1'), 'the first release version'),
     'DATETIME_VALUE': (datetime(2010, 8, 23, 11, 29, 24),
                        'time of the first commit'),

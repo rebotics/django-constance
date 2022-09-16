@@ -29,5 +29,6 @@ class UtilsTestCase(TestCase):
             'LINEBREAK_VALUE': 'Spam spam',
             'DECIMAL_VALUE': Decimal('0.1'),
             'STRING_VALUE': 'Hello world',
+            'LAZY_STRING_VALUE': 'Hello world',
             'DATETIME_VALUE': datetime.datetime(2010, 8, 23, 11, 29, 24),
         })
