@@ -34,6 +34,7 @@ class CliTestCase(TransactionTestCase):
         TIME_VALUE	23:59:59
         TIMEDELTA_VALUE	1 day, 2:03:00
         STRING_VALUE	Hello world
+        LAZY_STRING_VALUE	Hello world
         CHOICE_VALUE	yes
         DECIMAL_VALUE	0.1
         DATETIME_VALUE	2010-08-23 11:29:24

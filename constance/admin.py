@@ -15,7 +15,7 @@ from django.forms import fields
 from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.utils import timezone
-from django.utils.encoding import smart_bytes
+from django.utils.encoding import force_bytes
 from django.utils.formats import localize
 from django.utils.module_loading import import_string
 from django.utils.text import normalize_newlines
@@ -135,7 +135,7 @@ class ConstanceForm(forms.Form):
                 kwargs['disabled'] = True
             self.fields[name] = field_class(label=name, **kwargs)
 
-            version_hash.update(smart_bytes(initial.get(name, '')))
+            version_hash.update(force_bytes(initial.get(name, '')))
         self.initial['version'] = version_hash.hexdigest()
 
     def save(self):
